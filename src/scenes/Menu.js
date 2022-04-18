@@ -6,18 +6,28 @@ class Menu extends Phaser.Scene {
     preload() {
         // load audio
         this.load.audio('sfx_select', './assets/select.m4a');
-        this.load.audio('sfx_pop', './assets/pop.m4a');
-        this.load.audio('sfx_flower_shoot', './assets/sfx_flower_shoot.m4a');
+        this.load.audio('sfx_pop', './assets/sfx_flower.m4a');
+        this.load.audio('sfx_flower_shoot', './assets/pop.m4a');
         this.load.audio('background_music','./assets/background_music.m4a');
+        // load image
+        this.load.image('menu_screen', './assets/menu_screen.png');
     }
 
     create() {
         // menu text configuration
+        let titleConfig = {
+          fontFamily: 'custom',
+          fontSize: '60px',
+          color: '#FFFFFF',
+          align: 'right',
+          fixedWidth: 0
+        }
         let menuConfig = {
-            fontFamily: 'Courier',
-            fontSize: '28px',
-            backgroundColor: '#F3B141',
-            color: '#843605',
+            fontFamily: 'Monaco',
+            fontSize: '24px',
+            stroke: '#965703',
+            strokeThickness: 5,
+            color: '#ff9100',
             align: 'right',
             padding: {
                 top: 5,
@@ -25,14 +35,18 @@ class Menu extends Phaser.Scene {
             },
             fixedWidth: 0
         }
-        
+         // place menu screen image
+         this.add.image(0,0, 'menu_screen').setOrigin(0);
+
         // show menu text
-        this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding, 'BUBBLE PATROL', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, game.config.height/2, 'Use ←→ arrows to move & (F) to fire', menuConfig).setOrigin(0.5);
-        menuConfig.backgroundColor = '#21b593';
-        menuConfig.color = '#000';
-        this.add.text(game.config.width/2, game.config.height/2 + borderUISize + borderPadding, 'Press ← for Novice or → for Expert', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding, 'BUBBLE PATROL', titleConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/2, 'Use ←→ arrows to move & (F) to float', menuConfig).setOrigin(0.5,-1);
+        menuConfig.color = '#00e8cd';
+        menuConfig.stroke = '#075e51';
+        this.add.text(game.config.width/2, game.config.height/2 + borderUISize + borderPadding, 'Press ← for Novice or → for Expert', menuConfig).setOrigin(0.5, -1.5);
         
+        
+
         // define keys
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);

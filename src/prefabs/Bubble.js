@@ -11,7 +11,6 @@ class Bubble extends Phaser.GameObjects.Sprite {
     update() {
         // move bubble left
         this.x -= this.moveSpeed;
-      //  this.y -= 5*Math.sin(3.14*this.x);
         // wrap around from left edge to right edge
         if(this.x <= 0 - this.width) {
             this.x = game.config.width;

@@ -142,6 +142,7 @@ class Play extends Phaser.Scene {
     }
 
     bubblePop(bubble) {
+        // play bubble pop sfx
         this.sound.play('sfx_pop');
         // temporarily hide bubble
         bubble.alpha = 0;

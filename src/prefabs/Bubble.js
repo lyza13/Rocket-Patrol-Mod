@@ -1,15 +1,17 @@
-// Spaceship prefab
-class Spaceship extends Phaser.GameObjects.Sprite {
+// Bubble prefab
+class Bubble extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, texture, frame, pointValue) {
         super(scene, x, y, texture, frame);
         scene.add.existing(this);                       // add to existing scene
         this.points = pointValue;                       // store pointValue
-        this.moveSpeed = game.settings.spaceshipSpeed;  // pixels per frame
+        this.moveSpeed = game.settings.bubbleSpeed;     // pixels per frame
+        this.anims.play('bubbling');                    // play bubble animation
     }
 
     update() {
-        // move spaceship left
+        // move bubble left
         this.x -= this.moveSpeed;
+      //  this.y -= 5*Math.sin(3.14*this.x);
         // wrap around from left edge to right edge
         if(this.x <= 0 - this.width) {
             this.x = game.config.width;

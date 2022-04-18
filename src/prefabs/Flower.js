@@ -6,7 +6,7 @@ class Flower extends Phaser.GameObjects.Sprite {
         scene.add.existing(this);       // add to existing, displayList, updateList
         this.isFiring = false;          // track flower's firing status
         this.moveSpeed = 2;             // pixels per frame
-        this.sfxFlower = scene.sound.add('sfx_flower_shoot'); // add flower sfx
+        this.sfxFlower = scene.sound.add('sfx_flower_shoot',{volume: 0.1}); // add flower sfx
         this.anims.play('flowery');     // play flower animation
     }
 

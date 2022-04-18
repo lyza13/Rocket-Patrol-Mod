@@ -6,8 +6,8 @@ class Menu extends Phaser.Scene {
     preload() {
         // load audio
         this.load.audio('sfx_select', './assets/select.m4a');
-        this.load.audio('sfx_pop', './assets/sfx_flower.m4a');
-        this.load.audio('sfx_flower_shoot', './assets/pop.m4a');
+        this.load.audio('sfx_pop', './assets/pop.m4a');
+        this.load.audio('sfx_flower_shoot', './assets/sfx_flower.m4a');
         this.load.audio('background_music','./assets/background_music.m4a');
         // load image
         this.load.image('menu_screen', './assets/menu_screen.png');
@@ -17,17 +17,19 @@ class Menu extends Phaser.Scene {
         // menu text configuration
         let titleConfig = {
           fontFamily: 'custom',
-          fontSize: '60px',
-          color: '#FFFFFF',
-          align: 'right',
+          fontSize: '80px',
+          stroke: '#faa2c8',
+          strokeThickness: 3,
+          color: '#FFFFFF70',
+          align: 'center',
           fixedWidth: 0
         }
         let menuConfig = {
-            fontFamily: 'Monaco',
-            fontSize: '24px',
-            stroke: '#965703',
-            strokeThickness: 5,
-            color: '#ff9100',
+            fontFamily: 'custom',
+            fontSize: '28px',
+            stroke: '#ffffff',
+            strokeThickness: 2,
+            color: '#990b4880',
             align: 'right',
             padding: {
                 top: 5,
@@ -39,10 +41,10 @@ class Menu extends Phaser.Scene {
          this.add.image(0,0, 'menu_screen').setOrigin(0);
 
         // show menu text
-        this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding, 'BUBBLE PATROL', titleConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, game.config.height/2, 'Use ←→ arrows to move & (F) to float', menuConfig).setOrigin(0.5,-1);
-        menuConfig.color = '#00e8cd';
-        menuConfig.stroke = '#075e51';
+        this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding, 'BUBBLE \n PATROL', titleConfig).setOrigin(0.5, 0.5);
+        this.add.text(game.config.width/2, game.config.height/2, 'Use ←→ arrows to move & (F) to float', menuConfig).setOrigin(0.5,-1.4);
+        menuConfig.color = '#ffffff90';
+        menuConfig.stroke = '#990b48';
         this.add.text(game.config.width/2, game.config.height/2 + borderUISize + borderPadding, 'Press ← for Novice or → for Expert', menuConfig).setOrigin(0.5, -1.5);
         
         
@@ -59,7 +61,7 @@ class Menu extends Phaser.Scene {
             bubbleSpeed: 3,
             gameTimer: 60000    
           }
-          this.sound.play('sfx_select',{volume: 0.3});
+          this.sound.play('sfx_select',{volume: 0.5});
           this.scene.start('playScene');    
         }
         if (Phaser.Input.Keyboard.JustDown(keyRIGHT)) {
@@ -68,7 +70,7 @@ class Menu extends Phaser.Scene {
             bubbleSpeed: 4,
             gameTimer: 45000    
           }
-          this.sound.play('sfx_select', {volume: 0.3});
+          this.sound.play('sfx_select', {volume: 0.5});
           this.scene.start('playScene');    
         }
       }

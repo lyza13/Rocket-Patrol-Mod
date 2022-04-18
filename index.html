@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preload" as="font" href="./assets/RubikBubbles-Regular.ttf" type="font/ttf">
+    <link rel="preload" as="font" href="assets/RubikBubbles-Regular.ttf" type="font/ttf">
     <title>Bubble Patrol</title>
     <style>
         body {
@@ -13,7 +13,7 @@
         /* from https://www.webtips.dev/webtips/phaser/custom-fonts-in-phaser3*/
         @font-face {
             font-family: custom;
-            src: url('./assets/RubikBubbles-Regular.ttf');
+            src: url('assets/RubikBubbles-Regular.ttf');
         }
     </style>
 </head>
@@ -24,5 +24,10 @@
     <script src="./src/scenes/Menu.js"></script>
     <script src="./src/scenes/Play.js"></script>
     <script src="./src/main.js"></script>
+    
+    <!-- from https://phaser.discourse.group/t/loading-fonts-in-phaser-3-not-working/8898/3 -->
+    <div style="font-family: 'custom'; visibility: hidden;">
+        .
+    </div>
 </body>
 </html>

@@ -82,16 +82,13 @@ class Play extends Phaser.Scene {
             fontSize: '28px',
             stroke: '#ffffff',
             strokeThickness: 2,
-            color: '#990b4870',
+            color: '#990b4880',
             align: 'center',
             padding: {
                 top: 5,
                 bottom: 5,
-                left: 5,
-                right: 5,
             },
         }
-        this.scoreConfig.backgroundColor = '#FFFFFF95', 
         this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding, 'Score: 0', this.scoreConfig);
         
         // GAME OVER flag
@@ -101,29 +98,26 @@ class Play extends Phaser.Scene {
         this.clock = this.time.delayedCall(game.settings.gameTimer, () => {
             this.scoreConfig.color = '#990b4890',
             this.scoreConfig.fontSize = '64px';
-            this.scoreConfig.backgroundColor = '#FFFFFF00',
             this.add.text(game.config.width/2, game.config.height/2, 'GAME OVER', this.scoreConfig).setOrigin(0.5);
             this.scoreConfig.color = '#990b4880'
             this.scoreConfig.fontSize = '28px';
             this.add.text(game.config.width/2, game.config.height/2 + 64, 'Press (R) to Restart or ← for Menu', this.scoreConfig).setOrigin(0.5);
             this.gameOver = true;
         }, null, this);
-        this.scoreConfig.backgroundColor = '#FFFFFF95', 
         this.timer = this.add.text(game.config.width - borderPadding - 3*borderUISize, borderUISize + borderPadding, `${this.clock.delay}`, this.scoreConfig).setOrigin(0.5,0);
         
         // blue borders
-        this.add.rectangle(0, 0, game.config.width, borderUISize/5, 0xb1d1d1).setOrigin(0, 0);
-        this.add.rectangle(0, game.config.height - borderUISize/5, game.config.width, borderUISize, 0xb1d1d1).setOrigin(0, 0);
-        this.add.rectangle(0, 0, borderUISize/5, game.config.height, 0xb1d1d1).setOrigin(0, 0);
-        this.add.rectangle(game.config.width - borderUISize/5, 0, borderUISize, game.config.height, 0xb1d1d1).setOrigin(0, 0);
+        this.add.rectangle(0, 0, game.config.width, borderUISize, 0xb1d1d1).setOrigin(0, 0);
+        this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0xb1d1d1).setOrigin(0, 0);
+        this.add.rectangle(0, 0, borderUISize, game.config.height, 0xb1d1d1).setOrigin(0, 0);
+        this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0xb1d1d1).setOrigin(0, 0);
          
     }
 
     update() {
         // clock repaint per second
-        this.timeLeft = Math.round((this.clock.delay - this.clock.elapsed)/1000);
-        this.timer.text = `Time: ${this.timeLeft}`;
-
+        this.timer.text = `Time: ${Math.round((this.clock.delay - this.clock.elapsed) / 1000)}`;
+        
         // check key input for restart
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)) {
             this.music.pause();
@@ -151,22 +145,18 @@ class Play extends Phaser.Scene {
         }
         // check collisions
         if(this.checkCollision(this.p1Flower, this.bubble03)) {
-            // add time for bubble pop
             this.p1Flower.reset();
             this.bubblePop(this.bubble03);   
         }
         if (this.checkCollision(this.p1Flower, this.bubble02)) {
-            // add time for bubble pop
             this.p1Flower.reset();
             this.bubblePop(this.bubble02);
         }
         if (this.checkCollision(this.p1Flower, this.bubble01)) {
-            // add time for bubble pop
             this.p1Flower.reset();
             this.bubblePop(this.bubble01);
         }
         if(this.checkCollision(this.p1Flower, this.bubble04)) {
-            // add time for bubble pop
             this.p1Flower.reset();
             this.bubblePop(this.bubble04);   
         }
@@ -204,10 +194,6 @@ class Play extends Phaser.Scene {
         });
         // score add and repaint
         this.p1Score += bubble.points;
-        
-        // add 1 second to timer
-        this.clock.delay += 1000;
-
         this.scoreLeft.text = `Score: ${this.p1Score}`;
       }
 }

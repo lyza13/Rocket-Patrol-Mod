@@ -26,11 +26,11 @@ class Menu extends Phaser.Scene {
         }
         let menuConfig = {
             fontFamily: 'custom',
-            fontSize: '28px',
+            fontSize: '24px',
             stroke: '#ffffff',
             strokeThickness: 2,
             color: '#990b4880',
-            align: 'right',
+            align: 'center',
             padding: {
                 top: 5,
                 bottom: 5,
@@ -41,11 +41,11 @@ class Menu extends Phaser.Scene {
          this.add.image(0,0, 'menu_screen').setOrigin(0);
 
         // show menu text
-        this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding, 'BUBBLE \n PATROL', titleConfig).setOrigin(0.5, 0.5);
-        this.add.text(game.config.width/2, game.config.height/2, 'Use ←→ arrows to move & (F) to float', menuConfig).setOrigin(0.5,-1.4);
+        this.add.text(game.config.width/2, game.config.height/2 - borderUISize - borderPadding, 'KOI BUBBLE \n RESCUE', titleConfig).setOrigin(0.5, 0.5);
+        this.add.text(game.config.width/2, game.config.height/2 - borderUISize, 'Hold (A) or (D) to move LEFT or RIGHT \n Press (W) to move UP', menuConfig).setOrigin(0.5,-1.4);
         menuConfig.color = '#ffffff90';
         menuConfig.stroke = '#990b48';
-        this.add.text(game.config.width/2, game.config.height/2 + borderUISize + borderPadding, 'Press ← for Novice or → for Expert', menuConfig).setOrigin(0.5, -1.5);
+        this.add.text(game.config.width/2, game.config.height/2 + 2*borderUISize + borderPadding, 'Press ← for Novice or → for Expert', menuConfig).setOrigin(0.5, -1.5);
         
         
 

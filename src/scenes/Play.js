@@ -61,7 +61,9 @@ class Play extends Phaser.Scene {
         this.bubble04.moveSpeed *= 1.5;
 
         //define keys
-        keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
+        keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+        keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+        keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
@@ -151,22 +153,18 @@ class Play extends Phaser.Scene {
         }
         // check collisions
         if(this.checkCollision(this.p1Flower, this.bubble03)) {
-            // add time for bubble pop
             this.p1Flower.reset();
             this.bubblePop(this.bubble03);   
         }
         if (this.checkCollision(this.p1Flower, this.bubble02)) {
-            // add time for bubble pop
             this.p1Flower.reset();
             this.bubblePop(this.bubble02);
         }
         if (this.checkCollision(this.p1Flower, this.bubble01)) {
-            // add time for bubble pop
             this.p1Flower.reset();
             this.bubblePop(this.bubble01);
         }
         if(this.checkCollision(this.p1Flower, this.bubble04)) {
-            // add time for bubble pop
             this.p1Flower.reset();
             this.bubblePop(this.bubble04);   
         }

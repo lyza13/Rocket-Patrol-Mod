@@ -1,5 +1,5 @@
 
-// TITLE: Bubble Patrol
+// TITLE: Koi Bubble Rescue
 // NAME: Lyza Stevens
 // DATE: 4.18.2022
 // TIME TO COMPLETE: 20 hours
@@ -9,14 +9,13 @@
 
 // (60) Redesign the game's artwork, UI, and sound to change its theme/aesthetic (to something other than sci-fi)
 // (20) Create a new spaceship type (w/ new artwork) that's smaller, moves faster, and is worth more points
+// (20) Implement a new timing/scoring mechanism that adds time to the clock for successful hits 
 // (10) Implement parallax scrolling 
 // (10) Create a new animated sprite for the Spaceship enemies 
 // (10) Display the time remaining (in seconds) on the screen 
 // (10) Create a new title screen (e.g., new artwork, typography, layout)
 // (5)  Allow the player to control the Rocket after it's fired
 // (5)  Add your own (copyright-free) background music to the Play scene
-
-// (5) Implement the speed increase that happens after 30 seconds in the original game
 
 let config = {
     type: Phaser.CANVAS,
@@ -27,7 +26,7 @@ let config = {
 let game = new Phaser.Game(config);
 
 // reserve keyboard vars
-let keyF, keyR, keyLEFT, keyRIGHT;
+let keyW, keyA, keyD, keyR, keyLEFT, keyRIGHT;
 
 // set UI sizes
 let borderUISize = game.config.height / 15;

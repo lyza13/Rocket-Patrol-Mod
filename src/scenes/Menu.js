@@ -52,6 +52,7 @@ class Menu extends Phaser.Scene {
         // define keys
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+
     }
 
     update() {
@@ -59,7 +60,7 @@ class Menu extends Phaser.Scene {
           // easy mode
           game.settings = {
             bubbleSpeed: 3,
-            gameTimer: 60000    
+            gameTimer: 60000
           }
           this.sound.play('sfx_select',{volume: 0.5});
           this.scene.start('playScene');    
@@ -68,7 +69,7 @@ class Menu extends Phaser.Scene {
           // hard mode
           game.settings = {
             bubbleSpeed: 4,
-            gameTimer: 45000    
+            gameTimer: 45000     
           }
           this.sound.play('sfx_select', {volume: 0.5});
           this.scene.start('playScene');    
